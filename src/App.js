@@ -48,7 +48,7 @@ class App extends Component {
               onInputChange={ this.handleChange }
             />
             <Card
-              cardName= { cardName }
+              cardName={ cardName }
               cardDescription={ cardDescription }
               cardAttr1={ cardAttr1 }
               cardAttr2={ cardAttr2 }
