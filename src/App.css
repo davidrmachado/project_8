@@ -1,29 +1,29 @@
 body {
-    background-color: grey;
-}
-
-#root {
-    display: flexbox;
+  background-color: grey;
 }
 
 .formulário {
-    width: 200px;
-    border: 3px solid black;
-    padding: 1%;
-    border-radius: 3%;
-    column-count: 1;
-    display: flexbox;
-    background-color: royalblue;
+  border: 3px solid black;
+  width: 225px;
+  border-radius: 3%;
+  padding: 1%;
+  background-color: royalblue;
+  display: flexbox;
 }
 
 .cartão {
-    width: 200px;
-    height: 320px;
-    border: 3px solid black;
-    padding: 1%;
-    border-radius: 3%;
+  border: 3px solid black;
+  height: 320px;
+  width: 225px;
+  border-radius: 3%;
+  padding: 1%;
+  background-color: #f77f00;
 }
 
 .mainCards {
-    display: inline-flex;
+  display: inline-flex;
+}
+
+#image {
+  width: 200px;
 }

@@ -10,7 +10,7 @@ class Card extends Component {
       <div className="cartão">
         <h2 data-testid="name-card">{ cardName }</h2>
         <p data-testid="rare-card">{ cardRare }</p>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+        <img data-testid="image-card" src={ cardImage } alt={ cardName } id="image" />
         <p data-testid="description-card">{ cardDescription }</p>
         <div>
           <span data-testid="attr1-card">{ cardAttr1 }</span>
