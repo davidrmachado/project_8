@@ -7,8 +7,9 @@ class Card extends Component {
       cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
-      <div>
+      <div className="cartão">
         <h2 data-testid="name-card">{ cardName }</h2>
+        <p data-testid="rare-card">{ cardRare }</p>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         <p data-testid="description-card">{ cardDescription }</p>
         <div>
@@ -16,8 +17,7 @@ class Card extends Component {
           <span data-testid="attr2-card">{ cardAttr2 }</span>
           <span data-testid="attr3-card">{ cardAttr3 }</span>
         </div>
-        <p data-testid="rare-card">{ cardRare }</p>
-        {cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : ''}
+        {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
       </div>
     );
   }
