@@ -13,11 +13,11 @@
 
 .cartão {
   border: 3px solid black;
+  border-radius: 3%;
   height: 320px;
   width: 225px;
-  border-radius: 3%;
-  padding: 1%;
   background-color: #f77f00;
+  padding: 1%;
 }
 
 .mainCards {
