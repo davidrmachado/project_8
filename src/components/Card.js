@@ -11,13 +11,18 @@ class Card extends Component {
         <h2 data-testid="name-card">{ cardName }</h2>
         <p data-testid="rare-card">{ cardRare }</p>
         <p data-testid="description-card">{ cardDescription }</p>
-        <div>
+        <div className="atributosCard">
           <span data-testid="attr1-card">{ cardAttr1 }</span>
           <span data-testid="attr2-card">{ cardAttr2 }</span>
           <span data-testid="attr3-card">{ cardAttr3 }</span>
         </div>
         {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } id="image" />
+        <img
+          data-testid="image-card"
+          src={ cardImage }
+          alt={ cardName }
+          className="image"
+        />
       </div>
     );
   }
