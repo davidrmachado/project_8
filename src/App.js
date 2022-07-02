@@ -16,6 +16,7 @@ class App extends Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
+      hasTrunfo: false,
       isSaveButtonDisabled: true,
       cardDeck: [],
     };
@@ -51,32 +52,62 @@ class App extends Component {
       }
     }
 
-     handleChange = ({ target }) => {
-       const { name, type } = target;
-       const value = type !== 'checkbox' ? target.value : target.checked;
-       this.setState({
-         [name]: value,
-       }, this.handleSaveButton);
-     }
+    handleChange = ({ target }) => {
+      const { name, type } = target;
+      const value = type !== 'checkbox' ? target.value : target.checked;
+      this.setState({
+        [name]: value,
+      }, this.handleSaveButton);
+    }
+
+    clearFrom = () => {
+      this.setState(() => ({
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: '0',
+        cardAttr2: '0',
+        cardAttr3: '0',
+        cardImage: '',
+        cardRare: 'normal',
+        cardTrunfo: false,
+        isSaveButtonDisabled: true,
+      }));
+    }
 
      onSaveButtonClick = (event) => {
        event.preventDefault();
-       const newCard = this.state;
+       const { cardName, cardDescription, cardAttr1,
+         cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo,
+       } = this.state;
+       const newCard = { cardName,
+         cardDescription,
+         cardAttr1,
+         cardAttr2,
+         cardAttr3,
+         cardImage,
+         cardRare,
+         cardTrunfo,
+       };
+       if (newCard.cardTrunfo === true) {
+         this.setState(() => ({
+           hasTrunfo: true,
+         }));
+       }
        this.setState((prevState) => ({
-         cardName: '',
-         cardDescription: '',
-         cardAttr1: '0',
-         cardAttr2: '0',
-         cardAttr3: '0',
-         cardImage: '',
-         cardRare: 'normal',
          cardDeck: [newCard, ...prevState.cardDeck],
-       }));
+       }), this.clearFrom);
+     }
+
+     trunfoCheck = () => {
+       const { trunfo } = this.state;
+       if (trunfo === true) {
+         this.setState({ hasTrunfo: true });
+       }
      }
 
      render() {
        const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-         cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
+         cardImage, cardRare, cardTrunfo, isSaveButtonDisabled, hasTrunfo,
        } = this.state;
 
        return (
@@ -92,6 +123,7 @@ class App extends Component {
                cardImage={ cardImage }
                cardRare={ cardRare }
                cardTrunfo={ cardTrunfo }
+               hasTrunfo={ hasTrunfo }
                onInputChange={ this.handleChange }
                isSaveButtonDisabled={ isSaveButtonDisabled }
                onSaveButtonClick={ this.onSaveButtonClick }
