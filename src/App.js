@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import './App.css';
+import CardList from './components/CardList';
 
 class App extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class App extends Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
-      cardDeck: [],
+      cardList: [],
     };
   }
 
@@ -60,7 +61,7 @@ class App extends Component {
       }, this.handleSaveButton);
     }
 
-    clearFrom = () => {
+    clearForm = () => {
       this.setState(() => ({
         cardName: '',
         cardDescription: '',
@@ -79,7 +80,8 @@ class App extends Component {
        const { cardName, cardDescription, cardAttr1,
          cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo,
        } = this.state;
-       const newCard = { cardName,
+       const newCard = {
+         cardName,
          cardDescription,
          cardAttr1,
          cardAttr2,
@@ -94,8 +96,8 @@ class App extends Component {
          }));
        }
        this.setState((prevState) => ({
-         cardDeck: [newCard, ...prevState.cardDeck],
-       }), this.clearFrom);
+         cardList: [newCard, ...prevState.cardList],
+       }), this.clearForm);
      }
 
      trunfoCheck = () => {
@@ -106,8 +108,8 @@ class App extends Component {
      }
 
      render() {
-       const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-         cardImage, cardRare, cardTrunfo, isSaveButtonDisabled, hasTrunfo,
+       const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
+         cardRare, cardTrunfo, isSaveButtonDisabled, hasTrunfo, cardList,
        } = this.state;
 
        return (
@@ -138,6 +140,11 @@ class App extends Component {
                cardRare={ cardRare }
                cardTrunfo={ cardTrunfo }
              />
+
+             <CardList
+               cardList={ cardList }
+             />
+
            </div>
          </main>
        );
