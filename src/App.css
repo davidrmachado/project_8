@@ -3,21 +3,21 @@ body {
 }
 
 .formulário {
+  background-color: royalblue;
   border: 3px solid black;
   border-radius: 3%;
-  width: 225px;
-  background-color: royalblue;
-  padding: 1%;
   display: flexbox;
+  padding: 1%;
+  width: 225px;
 }
 
 .cartão {
+  background-color: #f77f00;
   border: 3px solid black;
   border-radius: 3%;
   height: 320px;
-  width: 225px;
-  background-color: #f77f00;
   padding: 1%;
+  width: 225px;
 }
 
 .mainCards {
